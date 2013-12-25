@@ -1,5 +1,13 @@
 Release history for Git-Wrapper-Plus
 
+0.002000 2013-12-25T13:48:24Z
+ - Add Git::Wrapper::Plus::Util for exit_status_handler
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.001000, see Changes.deps{,.all,.dev} for
+   details
+ - runtime: +1
+
 0.001000 2013-12-21T10:36:57Z
  - First version.
 

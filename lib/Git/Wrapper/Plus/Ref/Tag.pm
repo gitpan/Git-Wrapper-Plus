@@ -7,7 +7,7 @@ BEGIN {
   $Git::Wrapper::Plus::Ref::Tag::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Git::Wrapper::Plus::Ref::Tag::VERSION = '0.001000';
+  $Git::Wrapper::Plus::Ref::Tag::VERSION = '0.002000';
 }
 
 # ABSTRACT: A single tag object
@@ -70,7 +70,7 @@ Git::Wrapper::Plus::Ref::Tag - A single tag object
 
 =head1 VERSION
 
-version 0.001000
+version 0.002000
 
 =head1 SYNOPSIS
 

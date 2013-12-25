@@ -6,7 +6,7 @@ BEGIN {
   $Git::Wrapper::Plus::Refs::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Git::Wrapper::Plus::Refs::VERSION = '0.001000';
+  $Git::Wrapper::Plus::Refs::VERSION = '0.002000';
 }
 
 # ABSTRACT: Work with refs
@@ -75,7 +75,7 @@ Git::Wrapper::Plus::Refs - Work with refs
 
 =head1 VERSION
 
-version 0.001000
+version 0.002000
 
 =head1 SYNOPSIS
 

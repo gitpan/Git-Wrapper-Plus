@@ -7,7 +7,7 @@ BEGIN {
   $Git::Wrapper::Plus::Tester::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Git::Wrapper::Plus::Tester::VERSION = '0.001000';
+  $Git::Wrapper::Plus::Tester::VERSION = '0.002000';
 }
 
 # ABSTRACT: Utility for testing things with a git repository
@@ -98,7 +98,7 @@ Git::Wrapper::Plus::Tester - Utility for testing things with a git repository
 
 =head1 VERSION
 
-version 0.001000
+version 0.002000
 
 =head1 SYNOPSIS
 

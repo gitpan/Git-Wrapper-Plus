@@ -55,6 +55,7 @@ eval { $v .= pmver('Moo','any version') };
 eval { $v .= pmver('Path::Tiny','any version') };
 eval { $v .= pmver('Scalar::Util','any version') };
 eval { $v .= pmver('Sort::Versions','any version') };
+eval { $v .= pmver('Sub::Exporter::Progressive','any version') };
 eval { $v .= pmver('Test::Fatal','any version') };
 eval { $v .= pmver('Test::More','1.001002') };
 eval { $v .= pmver('Try::Tiny','any version') };

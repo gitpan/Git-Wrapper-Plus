@@ -6,7 +6,7 @@ BEGIN {
   $Git::Wrapper::Plus::Tags::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Git::Wrapper::Plus::Tags::VERSION = '0.001000';
+  $Git::Wrapper::Plus::Tags::VERSION = '0.002000';
 }
 
 # ABSTRACT: Extract all tags from a repository
@@ -120,7 +120,7 @@ Git::Wrapper::Plus::Tags - Extract all tags from a repository
 
 =head1 VERSION
 
-version 0.001000
+version 0.002000
 
 =head1 SYNOPSIS
 

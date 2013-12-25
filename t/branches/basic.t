@@ -59,7 +59,16 @@ $t->run_env(
     ok( exists $branches->{master_2}, 'master_2 branch found' );
     ok( exists $branches->{master_3}, 'master_3 branch found' );
     is( $branches->{master_2}->sha1, $branches->{master_3}->sha1, 'master_2 and master_3 have the same sha1' );
-  }
+    if ( $v->newer_than('1.5') ) {
+      subtest 'Detached head test' => sub {
+        $wrapper->checkout('master_3^');
+        $excp = exception {
+          is( $branch_finder->current_branch, undef, 'not currently on a branch' );
+        };
+        is( $excp, undef, 'Didnt fail due to not being on a branch' ) or diag $excp;
+      };
+    }
+  },
 );
 done_testing;
 

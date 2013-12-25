@@ -3,6 +3,9 @@
 .travis.yml
 Build.PL
 Changes
+Changes.deps
+Changes.deps.all
+Changes.deps.dev
 LICENSE
 MANIFEST
 META.json
@@ -19,6 +22,7 @@ lib/Git/Wrapper/Plus/Ref/Tag.pm
 lib/Git/Wrapper/Plus/Refs.pm
 lib/Git/Wrapper/Plus/Tags.pm
 lib/Git/Wrapper/Plus/Tester.pm
+lib/Git/Wrapper/Plus/Util.pm
 lib/Git/Wrapper/Plus/Versions.pm
 maint-travis-ci/README.mkdn
 maint-travis-ci/before_script.pl
@@ -44,6 +48,7 @@ t/00-compile/lib_Git_Wrapper_Plus_Ref_pm.t
 t/00-compile/lib_Git_Wrapper_Plus_Refs_pm.t
 t/00-compile/lib_Git_Wrapper_Plus_Tags_pm.t
 t/00-compile/lib_Git_Wrapper_Plus_Tester_pm.t
+t/00-compile/lib_Git_Wrapper_Plus_Util_pm.t
 t/00-compile/lib_Git_Wrapper_Plus_Versions_pm.t
 t/00-compile/lib_Git_Wrapper_Plus_pm.t
 t/00-report-git-version.t

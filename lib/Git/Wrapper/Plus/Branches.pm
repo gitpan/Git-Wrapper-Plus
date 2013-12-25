@@ -6,15 +6,14 @@ BEGIN {
   $Git::Wrapper::Plus::Branches::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Git::Wrapper::Plus::Branches::VERSION = '0.001000';
+  $Git::Wrapper::Plus::Branches::VERSION = '0.002000';
 }
 
 # ABSTRACT: Extract branches from Git
 
 
 use Moo;
-use Scalar::Util qw(blessed);
-use Try::Tiny qw( try catch );
+use Git::Wrapper::Plus::Util qw(exit_status_handler);
 
 
 has 'git' => ( is => ro =>, required => 1 );
@@ -24,12 +23,6 @@ sub _build_refs {
   my ($self) = @_;
   require Git::Wrapper::Plus::Refs;
   return Git::Wrapper::Plus::Refs->new( git => $self->git );
-}
-
-sub _build_versions {
-  my ($self) = @_;
-  require Git::Wrapper::Plus::Versions;
-  return Git::Wrapper::Plus::Versions->new( git => $self->git );
 }
 
 sub _to_branch {
@@ -55,48 +48,21 @@ sub get_branch {
   return $self->_to_branches( $self->refs->get_ref( 'refs/heads/' . $name ) );
 }
 
-sub _current_sha1 {
-  my ($self)          = @_;
-  my (@current_sha1s) = $self->git->rev_parse('HEAD');
-  if ( scalar @current_sha1s != 1 ) {
-    require Carp;
-    Carp::confess('Fatal: rev_parse HEAD returned != 1 values');
-  }
-  return shift @current_sha1s;
-}
-
 sub _current_branch_name {
   my ($self) = @_;
   my (@current_names);
-  my $ok;
-  try {
-    (@current_names) = $self->git->symbolic_ref('HEAD');
-    $ok = 1;
+  return unless exit_status_handler(
+    sub {
+      (@current_names) = $self->git->symbolic_ref('HEAD');
+    },
+    {
+      128 => sub { return }
+    }
+  );
+  for (@current_names) {
+    $_ =~ s{\A refs/heads/ }{}msx;
   }
-  catch {
-    my $e = $_;
-    if ( not ref $e ) {
-      die $e;
-    }
-    if ( not blessed $e ) {
-      die $e;
-    }
-    if ( not $e->isa('Git::Wrapper::Exception') ) {
-      die $e;
-    }
-    if ( $e->status == 128 ) {
-      undef $ok;
-      return;
-    }
-    die $e;
-  };
-  if ($ok) {
-    for (@current_names) {
-      $_ =~ s{\A refs/heads/ }{}msx;
-    }
-    return @current_names;
-  }
-  return;
+  return @current_names;
 
 }
 
@@ -105,7 +71,6 @@ sub current_branch {
   my ( $self, ) = @_;
   my ($ref) = $self->_current_branch_name;
   return if not $ref;
-  return if $ref eq 'HEAD';    # Weird special case.
   my (@items) = $self->get_branch($ref);
   return shift @items if @items == 1;
   require Carp;
@@ -128,7 +93,7 @@ Git::Wrapper::Plus::Branches - Extract branches from Git
 
 =head1 VERSION
 
-version 0.001000
+version 0.002000
 
 =head1 SYNOPSIS
 
