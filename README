@@ -3,7 +3,7 @@ NAME
     Object Oriented Way.
 
 VERSION
-    version 0.003000
+    version 0.003100
 
 DESCRIPTION
     Initially, I started off with "Dist::Zilla::Util::" and friends, but I

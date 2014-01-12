@@ -19,37 +19,37 @@ name: Git-Wrapper-Plus
 provides:
   Git::Wrapper::Plus:
     file: lib/Git/Wrapper/Plus.pm
-    version: 0.003000
+    version: 0.003100
   Git::Wrapper::Plus::Branches:
     file: lib/Git/Wrapper/Plus/Branches.pm
-    version: 0.003000
+    version: 0.003100
   Git::Wrapper::Plus::Ref:
     file: lib/Git/Wrapper/Plus/Ref.pm
-    version: 0.003000
+    version: 0.003100
   Git::Wrapper::Plus::Ref::Branch:
     file: lib/Git/Wrapper/Plus/Ref/Branch.pm
-    version: 0.003000
+    version: 0.003100
   Git::Wrapper::Plus::Ref::Tag:
     file: lib/Git/Wrapper/Plus/Ref/Tag.pm
-    version: 0.003000
+    version: 0.003100
   Git::Wrapper::Plus::Refs:
     file: lib/Git/Wrapper/Plus/Refs.pm
-    version: 0.003000
+    version: 0.003100
   Git::Wrapper::Plus::Support:
     file: lib/Git/Wrapper/Plus/Support.pm
-    version: 0.003000
+    version: 0.003100
   Git::Wrapper::Plus::Tags:
     file: lib/Git/Wrapper/Plus/Tags.pm
-    version: 0.003000
+    version: 0.003100
   Git::Wrapper::Plus::Tester:
     file: lib/Git/Wrapper/Plus/Tester.pm
-    version: 0.003000
+    version: 0.003100
   Git::Wrapper::Plus::Util:
     file: lib/Git/Wrapper/Plus/Util.pm
-    version: 0.003000
+    version: 0.003100
   Git::Wrapper::Plus::Versions:
     file: lib/Git/Wrapper/Plus/Versions.pm
-    version: 0.003000
+    version: 0.003100
 requires:
   Carp: 0
   Git::Wrapper: 0
@@ -67,7 +67,7 @@ resources:
   bugtracker: https://github.com/kentfredric/Git-Wrapper-Plus/issues
   homepage: https://github.com/kentfredric/Git-Wrapper-Plus
   repository: https://github.com/kentfredric/Git-Wrapper-Plus.git
-version: 0.003000
+version: 0.003100
 x_BuiltWith:
   modules:
     Carp: 1.32

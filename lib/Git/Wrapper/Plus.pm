@@ -7,7 +7,7 @@ package Git::Wrapper::Plus;
 BEGIN {
   $Git::Wrapper::Plus::AUTHORITY = 'cpan:KENTNL';
 }
-$Git::Wrapper::Plus::VERSION = '0.003000';
+$Git::Wrapper::Plus::VERSION = '0.003100';
 # ABSTRACT: A Toolkit for working with Git::Wrapper in an Object Oriented Way.
 
 
@@ -223,7 +223,7 @@ Git::Wrapper::Plus - A Toolkit for working with Git::Wrapper in an Object Orient
 
 =head1 VERSION
 
-version 0.003000
+version 0.003100
 
 =head1 DESCRIPTION
 

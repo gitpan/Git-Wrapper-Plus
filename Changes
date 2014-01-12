@@ -1,6 +1,17 @@
 Release history for Git-Wrapper-Plus
 
+0.003100 2014-01-12T19:51:57Z
+ [00 Substantial bugfix]
+ - Fixed borked changelog.
+ - Use Support indication to use for-each-ref where its supported, so that
+   branch resolution should work on shallow clones.
+
 0.003000 2014-01-12T18:38:52Z
+ [00 Major]
+ - Add ::Support class to test behaviours vs supported version data.
+ - Automatically stringify Path::Class and Path::Tiny if passed to
+   constructor instead of assuming they're a git.
+
  [Dependencies::Stats]
  - Dependencies changed since 0.002000, see Changes.deps{,.all,.dev} for
    details

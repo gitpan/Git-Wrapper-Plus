@@ -7,7 +7,7 @@ package Git::Wrapper::Plus::Util;
 BEGIN {
   $Git::Wrapper::Plus::Util::AUTHORITY = 'cpan:KENTNL';
 }
-$Git::Wrapper::Plus::Util::VERSION = '0.003000';
+$Git::Wrapper::Plus::Util::VERSION = '0.003100';
 # ABSTRACT: Misc plumbing tools for Git::Wrapper::Plus
 
 use Sub::Exporter::Progressive -setup => {
@@ -96,7 +96,7 @@ Git::Wrapper::Plus::Util - Misc plumbing tools for Git::Wrapper::Plus
 
 =head1 VERSION
 
-version 0.003000
+version 0.003100
 
 =head1 FUNCTIONS
 

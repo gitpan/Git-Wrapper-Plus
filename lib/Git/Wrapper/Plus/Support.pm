@@ -7,7 +7,7 @@ package Git::Wrapper::Plus::Support;
 BEGIN {
   $Git::Wrapper::Plus::Support::AUTHORITY = 'cpan:KENTNL';
 }
-$Git::Wrapper::Plus::Support::VERSION = '0.003000';
+$Git::Wrapper::Plus::Support::VERSION = '0.003100';
 # ABSTRACT: Determine what versions of things support what
 
 use Moo qw( has );
@@ -256,7 +256,7 @@ Git::Wrapper::Plus::Support - Determine what versions of things support what
 
 =head1 VERSION
 
-version 0.003000
+version 0.003100
 
 =head1 SYNOPSIS
 

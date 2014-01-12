@@ -12,7 +12,7 @@ my $t = Git::Wrapper::Plus::Tester->new();
 my $s = Git::Wrapper::Plus::Support->new( git => $t->git );
 
 my $data = {
-  commands   => {},
+  commands  => {},
   behaviors => {},
 };
 

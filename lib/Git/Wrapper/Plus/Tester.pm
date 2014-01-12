@@ -7,7 +7,7 @@ package Git::Wrapper::Plus::Tester;
 BEGIN {
   $Git::Wrapper::Plus::Tester::AUTHORITY = 'cpan:KENTNL';
 }
-$Git::Wrapper::Plus::Tester::VERSION = '0.003000';
+$Git::Wrapper::Plus::Tester::VERSION = '0.003100';
 # ABSTRACT: Utility for testing things with a git repository
 
 use Moo qw( has );
@@ -191,7 +191,7 @@ Git::Wrapper::Plus::Tester - Utility for testing things with a git repository
 
 =head1 VERSION
 
-version 0.003000
+version 0.003100
 
 =head1 SYNOPSIS
 
