@@ -1,20 +1,56 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Git::Wrapper::Plus::Refs;
 BEGIN {
   $Git::Wrapper::Plus::Refs::AUTHORITY = 'cpan:KENTNL';
 }
-{
-  $Git::Wrapper::Plus::Refs::VERSION = '0.002000';
-}
-
+$Git::Wrapper::Plus::Refs::VERSION = '0.003000';
 # ABSTRACT: Work with refs
 
-use Moo;
+use Moo qw( has );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 has git => required => 1, is => ro =>;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub _for_each_ref {
@@ -22,6 +58,7 @@ sub _for_each_ref {
 
   my $git_dir = $self->git->dir;
   for my $line ( $self->git->ls_remote( $git_dir, $refspec ) ) {
+    ## no critic (Compatibility::PerlMinimumVersionAndWhy)
     if ( $line =~ qr{ \A ([^\t]+) \t ( .+ ) \z }msx ) {
       $callback->( $1, $2 );
       next;
@@ -33,10 +70,36 @@ sub _for_each_ref {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 sub refs {
   my ($self) = @_;
   return $self->get_ref('refs/**');
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub get_ref {
@@ -44,15 +107,15 @@ sub get_ref {
   my @out;
   $self->_for_each_ref(
     $refspec => sub {
-      my ( $sha1, $refname ) = @_;
-      push @out, $self->_mk_ref( $sha1, $refname );
-    }
+      my ( $sha_one, $refname ) = @_;
+      push @out, $self->_mk_ref( $sha_one, $refname );
+    },
   );
   return @out;
 }
 
 sub _mk_ref {
-  my ( $self, $sha1, $name ) = @_;
+  my ( $self, undef, $name ) = @_;
   require Git::Wrapper::Plus::Ref;
   return Git::Wrapper::Plus::Ref->new(
     git  => $self->git,
@@ -75,7 +138,7 @@ Git::Wrapper::Plus::Refs - Work with refs
 
 =head1 VERSION
 
-version 0.002000
+version 0.003000
 
 =head1 SYNOPSIS
 
@@ -122,7 +185,7 @@ Fetch a given C<ref>, or collection of C<ref>s, matching a specification.
     my (@branches) = $reffer->get_ref('refs/heads/**');
     my (@tags)   = $reffer->get_ref('refs/tags/**');
 
-Though reminder, if you're working with branches or tags, use the relevant modules =).
+Though reminder, if you're working with branches or tags, use the relevant modules ☺.
 
 =head1 ATTRIBUTES
 
@@ -147,7 +210,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

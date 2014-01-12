@@ -1,25 +1,77 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Git::Wrapper::Plus::Tags;
 BEGIN {
   $Git::Wrapper::Plus::Tags::AUTHORITY = 'cpan:KENTNL';
 }
-{
-  $Git::Wrapper::Plus::Tags::VERSION = '0.002000';
-}
-
+$Git::Wrapper::Plus::Tags::VERSION = '0.003000';
 # ABSTRACT: Extract all tags from a repository
 
 
-use Moo;
 
 
 
-has git => is => ro =>, required => 1;
 
 
-has 'refs' => is => ro =>, lazy => 1, builder => 1;
+
+
+
+
+
+
+use Moo qw( has );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+has 'git' => ( is => ro =>, required => 1 );
+
+
+
+
+
+
+
+has 'refs' => ( is => ro =>, lazy => 1, builder => 1 );
 
 sub _build_refs {
   my ($self) = @_;
@@ -28,7 +80,7 @@ sub _build_refs {
 }
 
 sub _to_tag {
-  my ( $self, $ref ) = @_;
+  my ( undef, $ref ) = @_;
   require Git::Wrapper::Plus::Ref::Tag;
   return Git::Wrapper::Plus::Ref::Tag->new_from_Ref($ref);
 }
@@ -54,7 +106,7 @@ sub _to_tags {
 # However, we don't really care about the second half of the latter kind.
 #
 sub _grep_commit_pointers {
-  my ( $self, @refs ) = @_;
+  my ( undef, @refs ) = @_;
   my (@out);
   for my $ref (@refs) {
     next if $ref->name =~ /[^][{][}]\z/msx;
@@ -64,10 +116,42 @@ sub _grep_commit_pointers {
 }
 
 
+
+
+
+
+
+
+
+
+
 sub tags {
   my ($self) = @_;
   return $self->get_tag(q[**]);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub get_tag {
@@ -76,19 +160,41 @@ sub get_tag {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 sub tag_sha1_map {
   my ($self) = @_;
 
   my %hash;
   for my $tag ( $self->tags ) {
-    my $sha1 = $tag->sha1;
-    if ( not exists $hash{$sha1} ) {
-      $hash{$sha1} = [];
+    my $sha_one = $tag->sha1;
+    if ( not exists $hash{$sha_one} ) {
+      $hash{$sha_one} = [];
     }
-    push @{ $hash{$sha1} }, $tag;
+    push @{ $hash{$sha_one} }, $tag;
   }
   return \%hash;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub tags_for_rev {
@@ -120,7 +226,7 @@ Git::Wrapper::Plus::Tags - Extract all tags from a repository
 
 =head1 VERSION
 
-version 0.002000
+version 0.003000
 
 =head1 SYNOPSIS
 
@@ -230,7 +336,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -1,3 +1,4 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
 use utf8;
@@ -6,21 +7,49 @@ package Git::Wrapper::Plus::Util;
 BEGIN {
   $Git::Wrapper::Plus::Util::AUTHORITY = 'cpan:KENTNL';
 }
-{
-  $Git::Wrapper::Plus::Util::VERSION = '0.002000';
-}
-
+$Git::Wrapper::Plus::Util::VERSION = '0.003000';
 # ABSTRACT: Misc plumbing tools for Git::Wrapper::Plus
 
 use Sub::Exporter::Progressive -setup => {
   exports => [qw( exit_status_handler )],
   groups  => {
     default => [qw( exit_status_handler )],
-  }
+  },
 };
 
-use Try::Tiny;
+use Try::Tiny qw( try catch );
 use Scalar::Util qw(blessed);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub exit_status_handler {
@@ -30,6 +59,7 @@ sub exit_status_handler {
     $callback->();
   }
   catch {
+    ## no critic (ErrorHandling::RequireUseOfExceptions)
     undef $return;
     if ( not ref $_ ) {
       die $_;
@@ -66,7 +96,7 @@ Git::Wrapper::Plus::Util - Misc plumbing tools for Git::Wrapper::Plus
 
 =head1 VERSION
 
-version 0.002000
+version 0.003000
 
 =head1 FUNCTIONS
 
@@ -106,7 +136,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

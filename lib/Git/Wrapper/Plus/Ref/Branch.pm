@@ -1,3 +1,4 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
 use utf8;
@@ -6,29 +7,60 @@ package Git::Wrapper::Plus::Ref::Branch;
 BEGIN {
   $Git::Wrapper::Plus::Ref::Branch::AUTHORITY = 'cpan:KENTNL';
 }
-{
-  $Git::Wrapper::Plus::Ref::Branch::VERSION = '0.002000';
-}
-
+$Git::Wrapper::Plus::Ref::Branch::VERSION = '0.003000';
 # ABSTRACT: A Branch object
 
 
-use Moo;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+use Moo qw( extends );
 extends 'Git::Wrapper::Plus::Ref';
 
 our @CARP_NOT;
 
 
+
+
+
+
+
+
+
 sub new_from_Ref {
-  my ( $class, $object ) = @_;
-  if ( not $object->can('name') ) {
+  my ( $class, $source_object ) = @_;
+  if ( not $source_object->can('name') ) {
     require Carp;
-    return Carp::croak("Object $object does not respond to ->name, cannot Ref -> Branch");
+    return Carp::croak("Object $source_object does not respond to ->name, cannot Ref -> Branch");
   }
-  my $name = $object->name;
+  my $name = $source_object->name;
+  ## no critic ( Compatibility::PerlMinimumVersionAndWhy )
   if ( $name =~ qr{\Arefs/heads/(.+\z)}msx ) {
     return $class->new(
-      git  => $object->git,
+      git  => $source_object->git,
       name => $1,
     );
   }
@@ -37,10 +69,29 @@ sub new_from_Ref {
 }
 
 
+
+
+
+
+
 sub refname {
   my ($self) = @_;
   return 'refs/heads/' . $self->name;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -54,6 +105,15 @@ sub delete {
   return $self->git->branch( '-d', $self->name );
 
 }
+
+
+
+
+
+
+
+
+
 
 
 sub move {
@@ -85,7 +145,7 @@ Git::Wrapper::Plus::Ref::Branch - A Branch object
 
 =head1 VERSION
 
-version 0.002000
+version 0.003000
 
 =head1 SYNOPSIS
 
@@ -151,7 +211,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

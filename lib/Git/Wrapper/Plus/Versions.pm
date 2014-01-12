@@ -1,3 +1,4 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
 use utf8;
@@ -6,19 +7,57 @@ package Git::Wrapper::Plus::Versions;
 BEGIN {
   $Git::Wrapper::Plus::Versions::AUTHORITY = 'cpan:KENTNL';
 }
-{
-  $Git::Wrapper::Plus::Versions::VERSION = '0.002000';
-}
-
+$Git::Wrapper::Plus::Versions::VERSION = '0.003000';
 # ABSTRACT: Analyze and compare git versions
 
 
-use Moo;
-use Sort::Versions;
+
+
+
+
+
+
+
+
+
+
+
+use Moo qw( has );
+use Sort::Versions qw( versioncmp );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 has git => required => 1, is => ro =>;
+
+
+
+
+
 
 
 sub current_version {
@@ -27,10 +66,28 @@ sub current_version {
 }
 
 
+
+
+
+
+
+
+
+
+
 sub newer_than {
   my ( $self, $v ) = @_;
   return versioncmp( $self->current_version, $v ) >= 0;
 }
+
+
+
+
+
+
+
+
+
 
 
 sub older_than {
@@ -53,7 +110,7 @@ Git::Wrapper::Plus::Versions - Analyze and compare git versions
 
 =head1 VERSION
 
-version 0.002000
+version 0.003000
 
 =head1 SYNOPSIS
 
@@ -119,7 +176,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

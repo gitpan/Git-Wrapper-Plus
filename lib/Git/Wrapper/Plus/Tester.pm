@@ -1,3 +1,4 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
 use utf8;
@@ -6,49 +7,131 @@ package Git::Wrapper::Plus::Tester;
 BEGIN {
   $Git::Wrapper::Plus::Tester::AUTHORITY = 'cpan:KENTNL';
 }
-{
-  $Git::Wrapper::Plus::Tester::VERSION = '0.002000';
-}
-
+$Git::Wrapper::Plus::Tester::VERSION = '0.003000';
 # ABSTRACT: Utility for testing things with a git repository
 
-use Moo;
+use Moo qw( has );
 use Path::Tiny qw(path);
 
 
 
 
-has temp_dir => is => ro =>, lazy => 1, builder => 1;
-has home_dir => is => ro =>, lazy => 1, builder => 1;
-has repo_dir => is => ro =>, lazy => 1, builder => 1;
-has git      => is => ro =>, lazy => 1, builder => 1;
 
 
-has committer_name  => is => ro =>, lazy => 1, builder => 1;
-has committer_email => is => ro =>, lazy => 1, builder => 1;
-has author_name     => is => ro =>, lazy => 1, builder => 1;
-has author_email    => is => ro =>, lazy => 1, builder => 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+has 'temp_dir' => ( is => ro =>, lazy => 1, builder => 1 );
+has 'home_dir' => ( is => ro =>, lazy => 1, builder => 1 );
+has 'repo_dir' => ( is => ro =>, lazy => 1, builder => 1 );
+has 'git'      => ( is => ro =>, lazy => 1, builder => 1 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+has 'committer_name'  => ( is => ro =>, lazy => 1, builder => 1 );
+has 'committer_email' => ( is => ro =>, lazy => 1, builder => 1 );
+has 'author_name'     => ( is => ro =>, lazy => 1, builder => 1 );
+has 'author_email'    => ( is => ro =>, lazy => 1, builder => 1 );
 
 sub _build_temp_dir {
   return Path::Tiny->tempdir;
 }
 
 sub _build_home_dir {
-  my ( $self, @args ) = @_;
+  my ( $self, ) = @_;
   my $d = $self->temp_dir->child('homedir');
   $d->mkpath;
   return $d;
 }
 
 sub _build_repo_dir {
-  my ( $self, @args ) = @_;
+  my ( $self, ) = @_;
   my $d = $self->temp_dir->child('repodir');
   $d->mkpath;
   return $d;
 }
 
 sub _build_git {
-  my ( $self, @args ) = @_;
+  my ( $self, ) = @_;
   require Git::Wrapper;
   return Git::Wrapper->new( $self->repo_dir->absolute->stringify );
 }
@@ -71,6 +154,16 @@ sub _build_author_email {
   return $self->committer_email;
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 sub run_env {
@@ -98,7 +191,7 @@ Git::Wrapper::Plus::Tester - Utility for testing things with a git repository
 
 =head1 VERSION
 
-version 0.002000
+version 0.003000
 
 =head1 SYNOPSIS
 
@@ -201,7 +294,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

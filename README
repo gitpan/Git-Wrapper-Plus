@@ -3,7 +3,7 @@ NAME
     Object Oriented Way.
 
 VERSION
-    version 0.002000
+    version 0.003000
 
 DESCRIPTION
     Initially, I started off with "Dist::Zilla::Util::" and friends, but I
@@ -62,6 +62,11 @@ MODULES
     "Git::Wrapper::Plus::Versions" is a simple interface for comparing git
     versions.
 
+  "Git::Wrapper::Plus::Support"
+    "Git::Wrapper::Plus::Support" uses the "::Versions" interface and
+    combines it with a table of known good version ranges to provide a basic
+    summary of supported features on different git versions.
+
 COMMON INTERFACE
     You don't have to use this interface, and its probably more convenient
     to use one of the other classes contained in this distribution.
@@ -77,6 +82,7 @@ COMMON INTERFACE
         $plus->branches    # Git::Wrapper::Plus::Branches
         $plus->tags        # Git::Wrapper::Plus::Tags
         $plus->versions    # Git::Wrapper::Plus::Versions
+        $plus->support     # Git::Wrapper::Plus::Support
 
 METHODS
   "BUILDARGS"
@@ -93,11 +99,12 @@ ATTRIBUTES
   "tags"
   "branches"
   "versions"
+  "support"
 AUTHOR
     Kent Fredric <kentfredric@gmail.com>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2013 by Kent Fredric
+    This software is copyright (c) 2014 by Kent Fredric
     <kentfredric@gmail.com>.
 
     This is free software; you can redistribute it and/or modify it under

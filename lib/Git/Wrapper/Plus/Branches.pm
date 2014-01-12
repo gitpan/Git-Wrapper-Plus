@@ -1,19 +1,68 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Git::Wrapper::Plus::Branches;
 BEGIN {
   $Git::Wrapper::Plus::Branches::AUTHORITY = 'cpan:KENTNL';
 }
-{
-  $Git::Wrapper::Plus::Branches::VERSION = '0.002000';
-}
-
+$Git::Wrapper::Plus::Branches::VERSION = '0.003000';
 # ABSTRACT: Extract branches from Git
 
 
-use Moo;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+use Moo qw( has );
 use Git::Wrapper::Plus::Util qw(exit_status_handler);
+
+
+
+
+
+
+
+
+
 
 
 has 'git' => ( is => ro =>, required => 1 );
@@ -26,7 +75,7 @@ sub _build_refs {
 }
 
 sub _to_branch {
-  my ( $self, $ref ) = @_;
+  my ( undef, $ref ) = @_;
   require Git::Wrapper::Plus::Ref::Branch;
   return Git::Wrapper::Plus::Ref::Branch->new_from_Ref($ref);
 }
@@ -37,10 +86,38 @@ sub _to_branches {
 }
 
 
+
+
+
+
+
+
+
+
+
 sub branches {
   my ( $self, ) = @_;
   return $self->get_branch(q[**]);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub get_branch {
@@ -56,8 +133,8 @@ sub _current_branch_name {
       (@current_names) = $self->git->symbolic_ref('HEAD');
     },
     {
-      128 => sub { return }
-    }
+      128 => sub { return },
+    },
   );
   for (@current_names) {
     $_ =~ s{\A refs/heads/ }{}msx;
@@ -67,12 +144,24 @@ sub _current_branch_name {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 sub current_branch {
   my ( $self, ) = @_;
   my ($ref) = $self->_current_branch_name;
   return if not $ref;
   my (@items) = $self->get_branch($ref);
-  return shift @items if @items == 1;
+  return shift @items if 1 == @items;
   require Carp;
   Carp::confess( 'get_branch(' . $ref . ') returned multiple values. Cannot determine current branch' );
 }
@@ -93,7 +182,7 @@ Git::Wrapper::Plus::Branches - Extract branches from Git
 
 =head1 VERSION
 
-version 0.002000
+version 0.003000
 
 =head1 SYNOPSIS
 
@@ -191,7 +280,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

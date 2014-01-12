@@ -65,7 +65,13 @@ $t->run_env(
       undef,
       'No exceptions from ->versions'
     );
-
+    is(
+      exception {
+        $plus->support;
+      },
+      undef,
+      'No exceptions from ->support'
+    );
   }
 );
 

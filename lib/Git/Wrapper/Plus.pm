@@ -1,27 +1,142 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Git::Wrapper::Plus;
 BEGIN {
   $Git::Wrapper::Plus::AUTHORITY = 'cpan:KENTNL';
 }
-{
-  $Git::Wrapper::Plus::VERSION = '0.002000';
-}
-
+$Git::Wrapper::Plus::VERSION = '0.003000';
 # ABSTRACT: A Toolkit for working with Git::Wrapper in an Object Oriented Way.
 
 
 
-use Moo;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+use Moo qw( has );
 use Scalar::Util qw( blessed );
 
 
-sub BUILDARGS {
-  my ( $class, @args ) = @_;
-  if ( @args == 1 ) {
 
-    return { git => $args[0] } if blessed $args[0];
+
+
+
+
+
+
+
+
+
+sub BUILDARGS {
+  my ( undef, @args ) = @_;
+  if ( 1 == @args ) {
+  blesscheck: {
+      if ( blessed $args[0] ) {
+        if ( $args[0]->isa('Path::Tiny') ) {
+          $args[0] = q[] . $args[0];
+          last blesscheck;
+        }
+        if ( $args[0]->isa('Path::Class::Dir') ) {
+          $args[0] = q[] . $args[0];
+          last blesscheck;
+        }
+        if ( $args[0]->isa('Path::Class::File') ) {
+          $args[0] = q[] . $args[0];
+          last blesscheck;
+        }
+        return { git => $args[0] };
+      }
+    }
     return $args[0] if ref $args[0];
 
     require Git::Wrapper;
@@ -31,41 +146,67 @@ sub BUILDARGS {
 }
 
 
+
+
+
+
+
 has git => ( is => ro =>, required => 1 );
 
 has refs => ( is => ro =>, lazy => 1, builder => 1 );
 
 sub _build_refs {
-  my ( $self, @args ) = @_;
+  my ( $self, ) = @_;
   require Git::Wrapper::Plus::Refs;
   return Git::Wrapper::Plus::Refs->new( git => $self->git );
 }
 
 
+
+
+
 has tags => ( is => ro =>, lazy => 1, builder => 1 );
 
 sub _build_tags {
-  my ( $self, @args ) = @_;
+  my ( $self, ) = @_;
   require Git::Wrapper::Plus::Tags;
   return Git::Wrapper::Plus::Tags->new( git => $self->git );
 }
 
 
+
+
+
 has branches => ( is => ro =>, lazy => 1, builder => 1 );
 
 sub _build_branches {
-  my ( $self, @args ) = @_;
+  my ( $self, ) = @_;
   require Git::Wrapper::Plus::Branches;
   return Git::Wrapper::Plus::Branches->new( git => $self->git );
 }
 
 
+
+
+
 has versions => ( is => ro =>, lazy => 1, builder => 1 );
 
 sub _build_versions {
-  my ( $self, @args ) = @_;
+  my ( $self, ) = @_;
   require Git::Wrapper::Plus::Versions;
   return Git::Wrapper::Plus::Versions->new( git => $self->git );
+}
+
+
+
+
+
+has support => ( is => ro =>, lazy => 1, builder => 1 );
+
+sub _build_support {
+  my ( $self, ) = @_;
+  require Git::Wrapper::Plus::Support;
+  return Git::Wrapper::Plus::Support->new( git => $self->git );
 }
 
 1;
@@ -82,14 +223,15 @@ Git::Wrapper::Plus - A Toolkit for working with Git::Wrapper in an Object Orient
 
 =head1 VERSION
 
-version 0.002000
+version 0.003000
 
 =head1 DESCRIPTION
 
 Initially, I started off with C<Dist::Zilla::Util::> and friends, but I soon discovered so many quirks
 in C<git>, especially multiple-version support, and that such a toolkit would be more useful independent.
 
-So C<Git::Wrapper::Plus> is a collection of tools for using C<Git::Wrapper>, aiming to work on all versions of Git since at least Git C<1.3>.
+So C<Git::Wrapper::Plus> is a collection of tools for using C<Git::Wrapper>, aiming to work on all versions of Git since at least
+Git C<1.3>.
 
 For instance, you probably don't realize this, but on older C<git>'s,
 
@@ -139,6 +281,11 @@ This builds upon C<::Refs>
 
 L<< C<Git::Wrapper::Plus::Versions>|Git::Wrapper::Plus::Versions >> is a simple interface for comparing git versions.
 
+=head2 C<Git::Wrapper::Plus::Support>
+
+L<< C<Git::Wrapper::Plus::Support>|Git::Wrapper::Plus::Support >> uses the C<::Versions> interface and combines it with a table
+of known good version ranges to provide a basic summary of supported features on different git versions.
+
 =head1 COMMON INTERFACE
 
 You don't have to use this interface, and its probably more convenient
@@ -154,6 +301,7 @@ of the contained tools without having to pass C<Git::Wrapper> instances everywhe
     $plus->branches    # Git::Wrapper::Plus::Branches
     $plus->tags        # Git::Wrapper::Plus::Tags
     $plus->versions    # Git::Wrapper::Plus::Versions
+    $plus->support     # Git::Wrapper::Plus::Support
 
 =head1 METHODS
 
@@ -178,6 +326,8 @@ Construction takes 4 Forms:
 
 =head2 C<versions>
 
+=head2 C<support>
+
 =begin MetaPOD::JSON v1.1.0
 
 {
@@ -195,7 +345,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

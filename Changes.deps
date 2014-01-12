@@ -1,4 +1,14 @@
-0.002000
+0.003000
+ [Added / test requires]
+ - Test::Requires
+
+ [Changed / build requires]
+ - Module::Build 0.4203 → 0.4204
+
+ [Changed / configure requires]
+ - Module::Build 0.4203 → 0.4204
+
+0.002000 2013-12-25T13:48:24Z
  [Added / runtime requires]
  - Sub::Exporter::Progressive
 

@@ -1,4 +1,23 @@
-0.002000
+0.003000
+ [Added / develop requires]
+ - Dist::Zilla::Plugin::Git::NextRelease
+
+ [Added / test requires]
+ - Test::Requires
+
+ [Changed / build requires]
+ - Module::Build 0.4203 → 0.4204
+
+ [Changed / configure requires]
+ - Module::Build 0.4203 → 0.4204
+
+ [Changed / develop requires]
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.007000 → 2.008000
+
+ [Removed / develop requires]
+ - Dist::Zilla::Plugin::NextRelease
+
+0.002000 2013-12-25T13:48:24Z
  [Added / runtime requires]
  - Sub::Exporter::Progressive
 

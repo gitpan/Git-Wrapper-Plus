@@ -5,11 +5,11 @@ use warnings;
 use Test::More;
 use Git::Wrapper::Plus::Tester;
 use Test::Fatal qw(exception);
-use Git::Wrapper::Plus::Versions;
+use Git::Wrapper::Plus::Support;
 use Git::Wrapper::Plus::Branches;
 
 my $t = Git::Wrapper::Plus::Tester->new();
-my $v = Git::Wrapper::Plus::Versions->new( git => $t->git );
+my $s = Git::Wrapper::Plus::Support->new( git => $t->git );
 
 my $file  = $t->repo_dir->child('testfile');
 my $rfile = $file->relative( $t->repo_dir )->stringify;
@@ -19,11 +19,14 @@ $t->run_env(
   sub {
     my $wrapper = $t->git;
     my $excp    = exception {
-      if ( $v->newer_than('1.5') ) {
+      if ( $s->supports_command('init') ) {
         $wrapper->init();
       }
-      else {
+      elsif ( $s->supports_command('init-db') ) {
         $wrapper->init_db();
+      }
+      else {
+        die 'No repository initialiser supported';
       }
 
       $file->touch;
@@ -31,7 +34,7 @@ $t->run_env(
       $wrapper->commit( '-m', 'Test Commit' );
       $wrapper->checkout( '-b', 'master_2' );
       $file->spew('New Content');
-      if ( $v->newer_than('1.5') ) {
+      if ( $s->supports_behavior('add-updates-index') ) {
         note 'git add ' . $rfile;
         $wrapper->add($rfile);
       }
@@ -59,7 +62,7 @@ $t->run_env(
     ok( exists $branches->{master_2}, 'master_2 branch found' );
     ok( exists $branches->{master_3}, 'master_3 branch found' );
     is( $branches->{master_2}->sha1, $branches->{master_3}->sha1, 'master_2 and master_3 have the same sha1' );
-    if ( $v->newer_than('1.5') ) {
+    if ( $s->supports_behavior('can-checkout-detached') ) {
       subtest 'Detached head test' => sub {
         $wrapper->checkout('master_3^');
         $excp = exception {
