@@ -4,11 +4,10 @@ use warnings;
 use utf8;
 
 package Git::Wrapper::Plus::Refs;
-BEGIN {
-  $Git::Wrapper::Plus::Refs::AUTHORITY = 'cpan:KENTNL';
-}
-$Git::Wrapper::Plus::Refs::VERSION = '0.003100';
+$Git::Wrapper::Plus::Refs::VERSION = '0.003101';
 # ABSTRACT: Work with refs
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Moo qw( has );
 
@@ -168,7 +167,7 @@ Git::Wrapper::Plus::Refs - Work with refs
 
 =head1 VERSION
 
-version 0.003100
+version 0.003101
 
 =head1 SYNOPSIS
 

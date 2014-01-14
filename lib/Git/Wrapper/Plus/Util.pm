@@ -4,11 +4,10 @@ use warnings;
 use utf8;
 
 package Git::Wrapper::Plus::Util;
-BEGIN {
-  $Git::Wrapper::Plus::Util::AUTHORITY = 'cpan:KENTNL';
-}
-$Git::Wrapper::Plus::Util::VERSION = '0.003100';
+$Git::Wrapper::Plus::Util::VERSION = '0.003101';
 # ABSTRACT: Misc plumbing tools for Git::Wrapper::Plus
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Sub::Exporter::Progressive -setup => {
   exports => [qw( exit_status_handler )],
@@ -96,7 +95,7 @@ Git::Wrapper::Plus::Util - Misc plumbing tools for Git::Wrapper::Plus
 
 =head1 VERSION
 
-version 0.003100
+version 0.003101
 
 =head1 FUNCTIONS
 

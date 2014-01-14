@@ -4,11 +4,10 @@ use warnings;
 use utf8;
 
 package Git::Wrapper::Plus::Ref::Branch;
-BEGIN {
-  $Git::Wrapper::Plus::Ref::Branch::AUTHORITY = 'cpan:KENTNL';
-}
-$Git::Wrapper::Plus::Ref::Branch::VERSION = '0.003100';
+$Git::Wrapper::Plus::Ref::Branch::VERSION = '0.003101';
 # ABSTRACT: A Branch object
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
@@ -50,6 +49,7 @@ our @CARP_NOT;
 
 
 
+## no critic (ProhibitMixedCaseSubs)
 sub new_from_Ref {
   my ( $class, $source_object ) = @_;
   if ( not $source_object->can('name') ) {
@@ -145,7 +145,7 @@ Git::Wrapper::Plus::Ref::Branch - A Branch object
 
 =head1 VERSION
 
-version 0.003100
+version 0.003101
 
 =head1 SYNOPSIS
 

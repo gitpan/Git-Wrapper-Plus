@@ -4,11 +4,10 @@ use warnings;
 use utf8;
 
 package Git::Wrapper::Plus::Ref::Tag;
-BEGIN {
-  $Git::Wrapper::Plus::Ref::Tag::AUTHORITY = 'cpan:KENTNL';
-}
-$Git::Wrapper::Plus::Ref::Tag::VERSION = '0.003100';
+$Git::Wrapper::Plus::Ref::Tag::VERSION = '0.003101';
 # ABSTRACT: A single tag object
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
@@ -49,6 +48,7 @@ extends 'Git::Wrapper::Plus::Ref';
 
 
 
+## no critic(NamingConventions::ProhibitMixedCaseSubs)
 sub new_from_Ref {
   my ( $class, $source_object ) = @_;
   if ( not $source_object->can('name') ) {
@@ -117,7 +117,7 @@ Git::Wrapper::Plus::Ref::Tag - A single tag object
 
 =head1 VERSION
 
-version 0.003100
+version 0.003101
 
 =head1 SYNOPSIS
 
