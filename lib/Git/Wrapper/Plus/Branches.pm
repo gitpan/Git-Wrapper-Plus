@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Git::Wrapper::Plus::Branches;
-$Git::Wrapper::Plus::Branches::VERSION = '0.003101';
+$Git::Wrapper::Plus::Branches::VERSION = '0.004000';
 # ABSTRACT: Extract branches from Git
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -181,7 +181,7 @@ Git::Wrapper::Plus::Branches - Extract branches from Git
 
 =head1 VERSION
 
-version 0.003101
+version 0.004000
 
 =head1 SYNOPSIS
 

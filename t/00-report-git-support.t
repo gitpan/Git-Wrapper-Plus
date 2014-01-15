@@ -14,13 +14,14 @@ my $s = Git::Wrapper::Plus::Support->new( git => $t->git );
 my $data = {
   commands  => {},
   behaviors => {},
+  arguments => {},
 };
 
 $t->run_env(
   sub {
     subtest 'commands' => sub {
       note "\nCommands:";
-      for my $command ( sort keys %{$Git::Wrapper::Plus::Support::command_db} ) {
+      for my $command ( $s->commands->entries ) {
         my $msg = '- ' . $command . ' ';
         if ( $s->supports_command($command) ) {
           $msg .= "supported";
@@ -38,7 +39,7 @@ $t->run_env(
     subtest 'behaviors' => sub {
       note "\nBehaviours:";
 
-      for my $behavior ( sort keys %{$Git::Wrapper::Plus::Support::behavior_db} ) {
+      for my $behavior ( $s->behaviors->entries ) {
         my $msg = '- ' . $behavior . ' ';
         if ( $s->supports_behavior($behavior) ) {
           $msg .= "supported";
@@ -53,6 +54,27 @@ $t->run_env(
       pass("Behaviours reporting ok");
 
     };
+    subtest 'arguments' => sub {
+      note "\nArguments:";
+
+      for my $cmd ( $s->arguments->commands ) {
+        for my $arg ( $s->arguments->arguments($cmd) ) {
+          my $msg = '- ' . $cmd . ' ' . $arg . ' ';
+          if ( $s->supports_argument( $cmd, $arg ) ) {
+            $msg .= "supported";
+            push @{ $data->{arguments}->{supported} }, $cmd . ' ' . $arg;
+          }
+          else {
+            push @{ $data->{arguments}->{unsupported} }, $cmd . ' ' . $arg;
+            $msg .= "UNSUPPORTED";
+          }
+          note $msg;
+        }
+      }
+      pass("Arguments reporting ok");
+
+    };
+
   }
 );
 

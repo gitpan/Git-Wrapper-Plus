@@ -1,4 +1,15 @@
-0.003101
+0.004000
+ [Added / develop requires]
+ - Dist::Zilla::Plugin::Test::ReportPrereqs
+
+ [Changed / develop requires]
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.009000 → 2.010000
+
+ [Removed / develop requires]
+ - Dist::Zilla::Plugin::ReportVersions::Tiny
+ - version 0.9901
+
+0.003101 2014-01-14T07:00:13Z
  [Changed / develop requires]
  - Dist::Zilla::PluginBundle::Author::KENTNL 2.008000 → 2.009000
 

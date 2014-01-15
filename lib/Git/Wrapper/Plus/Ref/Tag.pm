@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Git::Wrapper::Plus::Ref::Tag;
-$Git::Wrapper::Plus::Ref::Tag::VERSION = '0.003101';
+$Git::Wrapper::Plus::Ref::Tag::VERSION = '0.004000';
 # ABSTRACT: A single tag object
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -117,7 +117,7 @@ Git::Wrapper::Plus::Ref::Tag - A single tag object
 
 =head1 VERSION
 
-version 0.003101
+version 0.004000
 
 =head1 SYNOPSIS
 

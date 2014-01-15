@@ -1,5 +1,17 @@
 Release history for Git-Wrapper-Plus
 
+0.004000 2014-01-15T19:32:07Z
+ [00 Major]
+ - ::Support class broken into several components
+ - Top level our variables in ::Support gone in favour of attributes
+ - ::Support now can test for git command arguments.
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.003101, see Changes.deps{,.all,.dev} for
+   details
+ - develop: +1 ↑1 -2
+ - test: +5
+
 0.003101 2014-01-14T07:00:13Z
  [00 Bugfix]
  - Documentation improvements
