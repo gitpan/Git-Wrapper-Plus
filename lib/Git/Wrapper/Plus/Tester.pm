@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Git::Wrapper::Plus::Tester;
-$Git::Wrapper::Plus::Tester::VERSION = '0.004000';
+$Git::Wrapper::Plus::Tester::VERSION = '0.004010';
 # ABSTRACT: Utility for testing things with a git repository
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -190,7 +190,7 @@ Git::Wrapper::Plus::Tester - Utility for testing things with a git repository
 
 =head1 VERSION
 
-version 0.004000
+version 0.004010
 
 =head1 SYNOPSIS
 

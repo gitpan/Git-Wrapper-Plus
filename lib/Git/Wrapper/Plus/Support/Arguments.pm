@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Git::Wrapper::Plus::Support::Arguments;
-$Git::Wrapper::Plus::Support::Arguments::VERSION = '0.004000';
+$Git::Wrapper::Plus::Support::Arguments::VERSION = '0.004010';
 # ABSTRACT: Database of command argument support data
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -146,7 +146,7 @@ Git::Wrapper::Plus::Support::Arguments - Database of command argument support da
 
 =head1 VERSION
 
-version 0.004000
+version 0.004010
 
 =head1 METHODS
 

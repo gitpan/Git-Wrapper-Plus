@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Git::Wrapper::Plus::Ref;
-$Git::Wrapper::Plus::Ref::VERSION = '0.004000';
+$Git::Wrapper::Plus::Ref::VERSION = '0.004010';
 # ABSTRACT: An Abstract REF node
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -97,7 +97,7 @@ Git::Wrapper::Plus::Ref - An Abstract REF node
 
 =head1 VERSION
 
-version 0.004000
+version 0.004010
 
 =head1 SYNOPSIS
 

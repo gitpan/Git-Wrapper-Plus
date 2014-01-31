@@ -14,14 +14,12 @@
    },
    "name" : "Git-Wrapper-Plus",
    "prereqs" : {
-      "build" : {
-         "requires" : {
-            "Module::Build" : "0.4204"
-         }
-      },
       "configure" : {
+         "recommends" : {
+            "ExtUtils::MakeMaker" : "6.86"
+         },
          "requires" : {
-            "Module::Build" : "0.4204"
+            "ExtUtils::MakeMaker" : "6.30"
          }
       },
       "develop" : {
@@ -39,6 +37,7 @@
             "Dist::Zilla::Plugin::Git::Tag" : "0",
             "Dist::Zilla::Plugin::GithubMeta" : "0",
             "Dist::Zilla::Plugin::License" : "0",
+            "Dist::Zilla::Plugin::MakeMaker" : "0",
             "Dist::Zilla::Plugin::Manifest" : "0",
             "Dist::Zilla::Plugin::ManifestSkip" : "0",
             "Dist::Zilla::Plugin::MetaConfig" : "0",
@@ -48,13 +47,12 @@
             "Dist::Zilla::Plugin::MetaTests" : "0",
             "Dist::Zilla::Plugin::MetaYAML" : "0",
             "Dist::Zilla::Plugin::MinimumPerl" : "0",
-            "Dist::Zilla::Plugin::ModuleBuild" : "0",
             "Dist::Zilla::Plugin::PkgVersion" : "0",
             "Dist::Zilla::Plugin::PodCoverageTests" : "0",
             "Dist::Zilla::Plugin::PodSyntaxTests" : "0",
             "Dist::Zilla::Plugin::PodWeaver" : "0",
             "Dist::Zilla::Plugin::Prereqs" : "0",
-            "Dist::Zilla::Plugin::Prereqs::MatchInstalled" : "0",
+            "Dist::Zilla::Plugin::Prereqs::Recommend::MatchInstalled" : "0",
             "Dist::Zilla::Plugin::ReadmeAnyFromPod" : "0",
             "Dist::Zilla::Plugin::ReadmeFromPod" : "0",
             "Dist::Zilla::Plugin::RunExtraTests" : "0",
@@ -67,7 +65,7 @@
             "Dist::Zilla::Plugin::TestRelease" : "0",
             "Dist::Zilla::Plugin::Twitter" : "0",
             "Dist::Zilla::Plugin::UploadToCPAN" : "0",
-            "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.010000",
+            "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.012000",
             "Pod::Coverage::TrustPod" : "0",
             "Test::CPAN::Changes" : "0.19",
             "Test::CPAN::Meta" : "0",
@@ -98,86 +96,89 @@
       "test" : {
          "recommends" : {
             "CPAN::Meta" : "0",
-            "CPAN::Meta::Requirements" : "0"
+            "CPAN::Meta::Requirements" : "2.120900",
+            "ExtUtils::MakeMaker" : "6.86",
+            "Test::More" : "1.001002"
          },
          "requires" : {
             "ExtUtils::MakeMaker" : "0",
             "File::Spec::Functions" : "0",
             "List::Util" : "0",
             "Test::Fatal" : "0",
-            "Test::More" : "1.001002",
-            "Test::Requires" : "0"
+            "Test::More" : "0.89",
+            "Test::Requires" : "0",
+            "version" : "0"
          }
       }
    },
    "provides" : {
       "Git::Wrapper::Plus" : {
          "file" : "lib/Git/Wrapper/Plus.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Branches" : {
          "file" : "lib/Git/Wrapper/Plus/Branches.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Ref" : {
          "file" : "lib/Git/Wrapper/Plus/Ref.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Ref::Branch" : {
          "file" : "lib/Git/Wrapper/Plus/Ref/Branch.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Ref::Tag" : {
          "file" : "lib/Git/Wrapper/Plus/Ref/Tag.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Refs" : {
          "file" : "lib/Git/Wrapper/Plus/Refs.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Support" : {
          "file" : "lib/Git/Wrapper/Plus/Support.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Support::Arguments" : {
          "file" : "lib/Git/Wrapper/Plus/Support/Arguments.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Support::Behaviors" : {
          "file" : "lib/Git/Wrapper/Plus/Support/Behaviors.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Support::Commands" : {
          "file" : "lib/Git/Wrapper/Plus/Support/Commands.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Support::Range" : {
          "file" : "lib/Git/Wrapper/Plus/Support/Range.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Support::RangeDictionary" : {
          "file" : "lib/Git/Wrapper/Plus/Support/RangeDictionary.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Support::RangeSet" : {
          "file" : "lib/Git/Wrapper/Plus/Support/RangeSet.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Tags" : {
          "file" : "lib/Git/Wrapper/Plus/Tags.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Tester" : {
          "file" : "lib/Git/Wrapper/Plus/Tester.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Util" : {
          "file" : "lib/Git/Wrapper/Plus/Util.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       },
       "Git::Wrapper::Plus::Versions" : {
          "file" : "lib/Git/Wrapper/Plus/Versions.pm",
-         "version" : "0.004000"
+         "version" : "0.004010"
       }
    },
    "release_status" : "stable",
@@ -192,7 +193,7 @@
          "web" : "https://github.com/kentfredric/Git-Wrapper-Plus"
       }
    },
-   "version" : "0.004000",
+   "version" : "0.004010",
    "x_BuiltWith" : {
       "modules" : {
          "CPAN::Meta" : "2.133380",
@@ -211,6 +212,7 @@
          "Dist::Zilla::Plugin::Git::Tag" : "2.019",
          "Dist::Zilla::Plugin::GithubMeta" : "0.42",
          "Dist::Zilla::Plugin::License" : "5.012",
+         "Dist::Zilla::Plugin::MakeMaker" : "5.012",
          "Dist::Zilla::Plugin::Manifest" : "5.012",
          "Dist::Zilla::Plugin::ManifestSkip" : "5.012",
          "Dist::Zilla::Plugin::MetaConfig" : "5.012",
@@ -220,13 +222,12 @@
          "Dist::Zilla::Plugin::MetaTests" : "5.012",
          "Dist::Zilla::Plugin::MetaYAML" : "5.012",
          "Dist::Zilla::Plugin::MinimumPerl" : "1.003",
-         "Dist::Zilla::Plugin::ModuleBuild" : "5.012",
          "Dist::Zilla::Plugin::PkgVersion" : "5.012",
          "Dist::Zilla::Plugin::PodCoverageTests" : "5.012",
          "Dist::Zilla::Plugin::PodSyntaxTests" : "5.012",
          "Dist::Zilla::Plugin::PodWeaver" : "4.005",
          "Dist::Zilla::Plugin::Prereqs" : "5.012",
-         "Dist::Zilla::Plugin::Prereqs::MatchInstalled" : "0.1.6",
+         "Dist::Zilla::Plugin::Prereqs::Recommend::MatchInstalled" : "0.001000",
          "Dist::Zilla::Plugin::ReadmeAnyFromPod" : "0.133360",
          "Dist::Zilla::Plugin::ReadmeFromPod" : "0.21",
          "Dist::Zilla::Plugin::RunExtraTests" : "0.016",
@@ -235,43 +236,43 @@
          "Dist::Zilla::Plugin::Test::Kwalitee" : "2.07",
          "Dist::Zilla::Plugin::Test::MinimumVersion" : "2.000005",
          "Dist::Zilla::Plugin::Test::Perl::Critic" : "2.112410",
-         "Dist::Zilla::Plugin::Test::ReportPrereqs" : "0.012",
+         "Dist::Zilla::Plugin::Test::ReportPrereqs" : "0.013",
          "Dist::Zilla::Plugin::TestRelease" : "5.012",
-         "Dist::Zilla::Plugin::Twitter" : "0.024",
+         "Dist::Zilla::Plugin::Twitter" : "0.025",
          "Dist::Zilla::Plugin::UploadToCPAN" : "5.012",
-         "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.010000",
+         "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.012000",
          "Dist::Zilla::PluginBundle::Author::KENTNL::Lite" : "1.7.2",
          "ExtUtils::MakeMaker" : "6.86",
-         "File::Spec::Functions" : "3.45",
+         "File::Spec::Functions" : "3.40",
          "Git::Wrapper" : "0.030",
-         "List::Util" : "1.35",
-         "Module::Build" : "0.4204",
+         "List::Util" : "1.38",
          "Moo" : "1.004002",
          "Path::Tiny" : "0.052",
          "Pod::Coverage::TrustPod" : "0.100003",
-         "Scalar::Util" : "1.35",
+         "Scalar::Util" : "1.38",
          "Sort::Versions" : "1.5",
          "Sub::Exporter::Progressive" : "0.001011",
          "Test::CPAN::Changes" : "0.27",
          "Test::CPAN::Meta" : "0.23",
          "Test::Fatal" : "0.013",
-         "Test::Kwalitee" : "1.17",
+         "Test::Kwalitee" : "1.18",
          "Test::More" : "1.001002",
          "Test::Pod" : "1.48",
          "Test::Pod::Coverage" : "1.08",
          "Test::Requires" : "0.07",
-         "Try::Tiny" : "0.18",
+         "Try::Tiny" : "0.19",
          "strict" : "1.08",
          "utf8" : "1.13",
-         "warnings" : "1.20"
+         "version" : "0.9907",
+         "warnings" : "1.21"
       },
       "perl" : {
-         "original" : "v5.19.7",
+         "original" : "v5.19.8",
          "qv" : 1,
          "version" : [
             5,
             19,
-            7
+            8
          ]
       },
       "perl-config" : {
@@ -280,11 +281,11 @@
          "osname" : "linux"
       },
       "platform" : "linux",
-      "uname" : "Linux 3.12.0-gentoo x86_64 GenuineIntel GNU/Linux"
+      "uname" : "Linux 3.13.0-gentoo-r1 x86_64 GenuineIntel GNU/Linux"
    },
    "x_Dist_Zilla" : {
       "perl" : {
-         "version" : "5.019007"
+         "version" : "5.019008"
       },
       "plugins" : [
          {
@@ -394,7 +395,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Test::ReportPrereqs",
             "name" : "@Author::KENTNL/Test::ReportPrereqs",
-            "version" : "0.012"
+            "version" : "0.013"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::Kwalitee",
@@ -622,8 +623,8 @@
             "version" : "1.006"
          },
          {
-            "class" : "Dist::Zilla::Plugin::ModuleBuild",
-            "name" : "@Author::KENTNL/ModuleBuild",
+            "class" : "Dist::Zilla::Plugin::MakeMaker",
+            "name" : "@Author::KENTNL/MakeMaker",
             "version" : "5.012"
          },
          {
@@ -689,28 +690,18 @@
          {
             "class" : "Dist::Zilla::Plugin::Twitter",
             "name" : "@Author::KENTNL/Twitter",
-            "version" : "0.024"
+            "version" : "0.025"
          },
          {
-            "class" : "Dist::Zilla::Plugin::Prereqs::MatchInstalled",
+            "class" : "Dist::Zilla::Plugin::Prereqs::Recommend::MatchInstalled",
             "config" : {
-               "Dist::Zilla::Plugin::Prereqs::MatchInstalled" : {
-                  "applyto" : [
-                     "build.requires",
-                     "build.recommends",
-                     "build.suggests",
-                     "test.requires",
-                     "test.recommends",
-                     "test.suggests",
-                     "runtime.requires",
-                     "runtime.recommends",
-                     "runtime.suggests",
-                     "configure.requires",
-                     "configure.recommends",
-                     "configure.suggests",
-                     "develop.requires",
-                     "develop.recommends",
-                     "develop.suggests"
+               "Dist::Zilla::Plugin::Prereqs::Recommend::MatchInstalled" : {
+                  "applyto_map" : [
+                     "build.requires = build.recommends",
+                     "test.requires = test.recommends",
+                     "runtime.requires = runtime.recommends",
+                     "configure.requires = configure.recommends",
+                     "develop.requires = develop.recommends"
                   ],
                   "applyto_phase" : [
                      "build",
@@ -719,20 +710,32 @@
                      "configure",
                      "develop"
                   ],
-                  "applyto_relation" : [
-                     "requires",
-                     "recommends",
-                     "suggests"
+                  "modules" : [
+                     "ExtUtils::MakeMaker",
+                     "Test::More"
+                  ]
+               }
+            },
+            "name" : "@Author::KENTNL/Prereqs::Recommend::MatchInstalled",
+            "version" : "0.001000"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Prereqs::Recommend::MatchInstalled",
+            "config" : {
+               "Dist::Zilla::Plugin::Prereqs::Recommend::MatchInstalled" : {
+                  "applyto_map" : [
+                     "develop.requires = develop.requires"
+                  ],
+                  "applyto_phase" : [
+                     "develop"
                   ],
                   "modules" : [
-                     "Module::Build",
-                     "Test::More",
                      "Dist::Zilla::PluginBundle::Author::KENTNL"
                   ]
                }
             },
-            "name" : "@Author::KENTNL/Prereqs::MatchInstalled",
-            "version" : "0.1.6"
+            "name" : "@Author::KENTNL/always_latest_develop_bundle",
+            "version" : "0.001000"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",
